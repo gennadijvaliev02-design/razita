@@ -82,7 +82,7 @@ a{color:inherit}
 .hero-motto{grid-column:1/-1;display:flex;align-items:center;gap:18px;margin-top:clamp(28px,4vw,48px);color:var(--muted-lg);font-family:var(--serif);font-style:italic;font-size:clamp(17px,2vw,21px)}
 .hero-motto::before{content:"";flex:0 0 56px;height:1px;background:var(--accent)}
 /* Направления */
-.services{background:var(--bg2);padding:clamp(56px,8vw,104px) 0}
+.services{background:var(--bg);padding:clamp(56px,8vw,104px) 0}
 .services-head{display:grid;gap:16px;max-width:640px;margin-bottom:clamp(28px,4vw,48px)}
 .service{display:grid;grid-template-columns:72px 1fr;gap:8px 24px;padding:clamp(26px,3.4vw,40px) 0;border-top:1px solid var(--line)}
 .service-num{font-family:var(--serif);font-style:italic;font-size:clamp(28px,3vw,40px);color:var(--accent)}
@@ -99,9 +99,16 @@ a{color:inherit}
 .work-index{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--accent)}
 .work-caption{font-weight:600;font-size:15.5px}
 .work-note{color:var(--muted);font-size:14px;max-width:40ch}
-.compare-frame{width:100%;aspect-ratio:1.98/1;background-color:var(--bg2);background-size:233% 259%;background-repeat:no-repeat}
-.compare[data-state="before"] .compare-frame{background-position:50% 14.8%}
-.compare[data-state="after"] .compare-frame{background-position:50% 77.6%}
+.compare{--split:50%;position:relative}
+.compare-stage{position:relative;aspect-ratio:1.98/1;overflow:hidden;touch-action:pan-y;cursor:ew-resize}
+.compare-frame{position:absolute;inset:0;background-color:var(--bg2);background-size:233% 259%;background-repeat:no-repeat;background-position:50% 77.6%}
+.compare-before{background-position:50% 14.8%;clip-path:inset(0 calc(100% - var(--split)) 0 0)}
+.compare-handle{position:absolute;left:var(--split);top:0;bottom:0;width:2px;background:#fff;transform:translateX(-50%);pointer-events:none}
+.compare-handle::after{content:"↔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:46px;height:46px;border:2px solid #fff;border-radius:50%;background:var(--accent);color:#fff;font-size:24px;box-shadow:0 2px 12px #0003}
+.compare-label{position:absolute;top:12px;padding:4px 12px;background:var(--bg);border-radius:20px;font-size:12px;pointer-events:none}
+.compare-label.before{left:12px}.compare-label.after{right:12px}
+.compare-range{display:block;width:100%;margin:14px 0 0;accent-color:var(--accent);cursor:ew-resize;height:28px}
+.compare-help{font-size:12px;color:var(--muted);margin-top:4px}
 [data-img="workAngled"]{aspect-ratio:1664/928}
 [data-img="workAngled"] img{object-fit:contain!important;object-position:center!important}
 [data-img="workMat"]{aspect-ratio:664/638}
@@ -231,6 +238,29 @@ a{color:inherit}
     </div>
   </section>
 
+  <!-- 4. О враче -->
+  <section id="about" class="about" aria-labelledby="about-title">
+    <div class="container about-grid">
+      <div class="about-photos reveal">
+        <figure class="photo aspect-45" data-img="about">
+          <img alt="" data-alt="about" loading="lazy" decoding="async" style="object-position:16% 50%">
+          <figcaption class="fallback"><span class="fl-name" data-path="name">Разита</span><span class="fl-sub" data-path="profession">Стоматолог</span></figcaption>
+        </figure>
+        <figure class="photo aspect-23" data-img="life">
+          <img alt="" data-alt="life" loading="lazy" decoding="async">
+          <figcaption class="fallback"><span class="fl-name">DR</span><span class="fl-sub">Жизнь вне кабинета</span></figcaption>
+        </figure>
+      </div>
+      <div class="about-text reveal">
+        <p class="eyebrow">О враче</p>
+        <h2 id="about-title" data-path="about.title">Давайте знакомиться</h2>
+        <p class="lead" data-path="about.lead">Я Разита, стоматолог. Мои направления — виниры и композитные реставрации.</p>
+        <p data-path="about.text">В блоге делюсь работами, рассказываю об уходе за зубами и показываю жизнь вне кабинета. Здесь собрано главное из профиля — без лишних обещаний, только то, что можно увидеть и обсудить.</p>
+        <a class="link-underline" href="https://www.instagram.com/dentist_razita/" target="_blank" rel="noopener noreferrer" data-path="about.link">Больше обо мне в Instagram</a>
+      </div>
+    </div>
+  </section>
+
   <!-- 2. Направления -->
   <section id="services" class="services" aria-labelledby="services-title">
     <div class="container">
@@ -269,12 +299,15 @@ a{color:inherit}
 
     <article class="work reveal">
       <div class="work-media">
-        <div class="compare" data-state="before" data-img-bg="workPair">
-          <div class="compare-frame" role="img" data-alt="workPair" aria-label="Пример работы из Instagram: улыбка до и после, фронтальный вид"></div>
-          <div class="compare-controls" role="group" aria-label="Переключение снимков до и после">
-            <button class="chip" type="button" data-compare="before" aria-pressed="true">До</button>
-            <button class="chip" type="button" data-compare="after" aria-pressed="false">После</button>
+        <div class="compare" data-img-bg="workPair">
+          <div class="compare-stage">
+            <div class="compare-frame" role="img" aria-label="После — иллюстрация для макета"></div>
+            <div class="compare-frame compare-before" role="img" aria-label="До — иллюстрация для макета"></div>
+            <span class="compare-label before">До</span><span class="compare-label after">После</span>
+            <span class="compare-handle" aria-hidden="true"></span>
           </div>
+          <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Сравнение до и после" aria-valuetext="До: 50%, после: 50%">
+          <p class="compare-help">Потяните разделитель, чтобы сравнить</p>
         </div>
       </div>
       <div class="work-meta">
@@ -317,29 +350,6 @@ a{color:inherit}
     <div class="works-foot reveal">
       <p class="works-disclaimer" data-path="works.disclaimer">Результаты индивидуальны. Возможности лечения обсуждаются на консультации.</p>
       <a class="link-underline" href="https://www.instagram.com/dentist_razita/" target="_blank" rel="noopener noreferrer" data-path="works.more">Больше примеров — в Instagram</a>
-    </div>
-  </section>
-
-  <!-- 4. О враче -->
-  <section id="about" class="about" aria-labelledby="about-title">
-    <div class="container about-grid">
-      <div class="about-photos reveal">
-        <figure class="photo aspect-45" data-img="about">
-          <img alt="" data-alt="about" loading="lazy" decoding="async" style="object-position:16% 50%">
-          <figcaption class="fallback"><span class="fl-name" data-path="name">Разита</span><span class="fl-sub" data-path="profession">Стоматолог</span></figcaption>
-        </figure>
-        <figure class="photo aspect-23" data-img="life">
-          <img alt="" data-alt="life" loading="lazy" decoding="async">
-          <figcaption class="fallback"><span class="fl-name">DR</span><span class="fl-sub">Жизнь вне кабинета</span></figcaption>
-        </figure>
-      </div>
-      <div class="about-text reveal">
-        <p class="eyebrow">О враче</p>
-        <h2 id="about-title" data-path="about.title">Давайте знакомиться</h2>
-        <p class="lead" data-path="about.lead">Я Разита, стоматолог. Мои направления — виниры и композитные реставрации.</p>
-        <p data-path="about.text">В блоге делюсь работами, рассказываю об уходе за зубами и показываю жизнь вне кабинета. Здесь собрано главное из профиля — без лишних обещаний, только то, что можно увидеть и обсудить.</p>
-        <a class="link-underline" href="https://www.instagram.com/dentist_razita/" target="_blank" rel="noopener noreferrer" data-path="about.link">Больше обо мне в Instagram</a>
-      </div>
     </div>
   </section>
 
@@ -517,7 +527,7 @@ var DATA = {
   });
   document.querySelectorAll("[data-img-bg]").forEach(function (box) {
     var url = DATA.images[box.getAttribute("data-img-bg")];
-    if (url) box.querySelector(".compare-frame").style.backgroundImage = "url('" + url + "')";
+    if (url) box.querySelectorAll(".compare-frame").forEach(function(frame) { frame.style.backgroundImage = "url('" + url + "')"; });
   });
 
   /* Мобильное меню (включая Escape) */
@@ -534,16 +544,28 @@ var DATA = {
   nav.addEventListener("click", function (e) { if (e.target.tagName === "A") setMenu(false); });
   window.addEventListener("resize", function () { if (window.innerWidth > 860) setMenu(false); });
 
-  /* Переключатель до/после */
-  document.querySelectorAll(".compare").forEach(function (cmp) {
-    cmp.querySelectorAll("[data-compare]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var state = btn.getAttribute("data-compare");
-        cmp.setAttribute("data-state", state);
-        cmp.querySelectorAll("[data-compare]").forEach(function (b) {
-          b.setAttribute("aria-pressed", String(b === btn));
-        });
-      });
+  /* Сравнение: мышь, касание и клавиатура */
+  document.querySelectorAll(".compare").forEach(function(cmp) {
+    var range = cmp.querySelector(".compare-range"), stage = cmp.querySelector(".compare-stage");
+    function update(value) {
+      value = Math.max(0, Math.min(100, Math.round(value)));
+      range.value = value;
+      cmp.style.setProperty("--split", value + "%");
+      range.setAttribute("aria-valuetext", "До: " + value + "%, после: " + (100 - value) + "%");
+    }
+    range.addEventListener("input", function() { update(Number(range.value)); });
+    var active = null;
+    function move(e) {
+      var rect = stage.getBoundingClientRect();
+      update((e.clientX - rect.left) / rect.width * 100);
+    }
+    stage.addEventListener("pointerdown", function(e) {
+      if (!e.isPrimary || e.button !== 0) return;
+      active = e.pointerId; stage.setPointerCapture(active); range.focus({preventScroll:true}); move(e);
+    });
+    stage.addEventListener("pointermove", function(e) { if (e.pointerId === active) move(e); });
+    ["pointerup", "pointercancel", "lostpointercapture"].forEach(function(type) {
+      stage.addEventListener(type, function() { active = null; });
     });
   });
 
