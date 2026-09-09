@@ -156,6 +156,28 @@ a{color:inherit}
 .demo-mark{font-style:italic}
 /* Мобильная кнопка */
 .cta-fixed{position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:60;box-shadow:0 10px 30px rgba(40,58,52,.28)}
+/* Демо-запись */
+[hidden]{display:none!important}
+.booking-dialog{width:min(620px,calc(100% - 28px));max-height:calc(100dvh - 28px);padding:0;border:0;border-radius:10px;background:var(--bg);color:var(--ink);box-shadow:0 24px 80px rgba(25,39,34,.28);overflow:auto}
+.booking-dialog::backdrop{background:rgba(25,39,34,.58);backdrop-filter:blur(3px)}
+.booking-shell{position:relative;padding:clamp(28px,5vw,52px)}
+.booking-close{position:absolute;right:18px;top:18px;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);font-size:26px;line-height:1;cursor:pointer}
+.booking-head{display:grid;gap:10px;padding-right:44px;margin-bottom:26px}
+.booking-head h2{font-size:clamp(2rem,6vw,3rem)}
+.booking-head p:last-child{color:var(--muted);font-size:14px}
+.booking-form{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}
+.field{display:grid;gap:7px}
+.field-wide{grid-column:1/-1}
+.field label{font-weight:600;font-size:13px}
+.field input,.field select{width:100%;min-height:48px;border:1px solid rgba(40,58,52,.25);border-radius:6px;background:#fff;color:var(--ink);padding:11px 13px;font:500 15px/1.3 var(--sans)}
+.field input:focus,.field select:focus{border-color:var(--accent);outline:2px solid rgba(82,107,96,.18);outline-offset:1px}
+.booking-actions{grid-column:1/-1;display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:4px}
+.booking-demo-note{font-size:12.5px;color:var(--muted);max-width:34ch}
+.booking-success{text-align:center;padding:clamp(18px,5vw,40px) 0 8px}
+.success-check{width:78px;height:78px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-size:42px;line-height:1}
+.booking-success h2{margin-bottom:14px}
+.booking-success p{color:var(--muted);margin:0 auto 26px;max-width:38ch}
+@media(max-width:560px){.booking-form{grid-template-columns:1fr}.field-wide,.booking-actions{grid-column:1}.booking-shell{padding:26px 20px}.booking-close{right:12px;top:12px}}
 /* Появление */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .reveal.is-in{opacity:1;transform:none}
@@ -208,7 +230,7 @@ a{color:inherit}
       <a href="#works">Работы</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a class="btn btn-primary header-cta" data-wa href="https://wa.me/79258608365">Записаться</a>
+    <a class="btn btn-primary header-cta" data-booking href="#booking">Записаться онлайн</a>
     <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
       <span></span><span></span><span></span>
     </button>
@@ -224,7 +246,7 @@ a{color:inherit}
         <h1 class="hero-title" id="hero-title" data-path="hero.title">Ваша улыбка. Ваш характер.</h1>
         <p class="hero-text" data-path="hero.text">Виниры и композитные реставрации. Запись на консультацию в Москве, м. Новаторская.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" data-wa href="https://wa.me/79258608365" data-path="hero.primary">Обсудить мою улыбку</a>
+          <a class="btn btn-primary" data-booking href="#booking" data-path="hero.primary">Записаться онлайн</a>
           <a class="btn btn-ghost" href="#works" data-path="hero.secondary">Посмотреть работы</a>
         </div>
       </div>
@@ -367,7 +389,7 @@ a{color:inherit}
           <li><b data-path="record.steps.2.title">Обсудите пожелания на консультации</b><span data-path="record.steps.2.text">Осмотр, разговор о вариантах и план действий.</span></li>
         </ol>
         <div class="record-actions">
-          <a class="btn btn-light" data-wa href="https://wa.me/79258608365" data-path="record.cta">Написать в WhatsApp</a>
+          <a class="btn btn-light" data-booking href="#booking" data-path="record.cta">Записаться онлайн</a>
         </div>
         <p class="record-hint" data-path="record.hint">Ответ приходит в обычном порядке врача, без автоматических подтверждений.</p>
       </div>
@@ -387,7 +409,7 @@ a{color:inherit}
       <div class="footer-col">
         <p class="eyebrow">Связь</p>
         <a class="link-underline" data-tel href="tel:+79258608365" data-path="contacts.phoneDisplay">+7 925 860-83-65</a>
-        <a class="btn btn-primary" data-wa href="https://wa.me/79258608365" data-path="contacts.waLabel">Написать в WhatsApp</a>
+        <a class="btn btn-primary" data-booking href="#booking" data-path="contacts.waLabel">Записаться онлайн</a>
       </div>
       <div class="footer-col">
         <p class="eyebrow">Профиль</p>
@@ -401,7 +423,34 @@ a{color:inherit}
   </div>
 </footer>
 
-<a class="cta-fixed btn btn-primary" data-wa href="https://wa.me/79258608365">Записаться</a>
+<a class="cta-fixed btn btn-primary" data-booking href="#booking">Записаться онлайн</a>
+
+<dialog class="booking-dialog" id="booking" aria-labelledby="booking-title">
+  <div class="booking-shell">
+    <button class="booking-close" type="button" data-booking-close aria-label="Закрыть запись">×</button>
+    <div data-booking-form-view>
+      <div class="booking-head">
+        <p class="eyebrow">Онлайн-запись · демо</p>
+        <h2 id="booking-title">Записаться на консультацию</h2>
+        <p>Заполните данные и выберите удобное время.</p>
+      </div>
+      <form class="booking-form" id="booking-form">
+        <div class="field field-wide"><label for="booking-name">Ваше имя</label><input id="booking-name" name="name" autocomplete="name" required placeholder="Например, Анна"></div>
+        <div class="field field-wide"><label for="booking-phone">Телефон</label><input id="booking-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+7 999 000-00-00"></div>
+        <div class="field field-wide"><label for="booking-service">Что вас интересует</label><select id="booking-service" name="service" required><option value="">Выберите направление</option><option>Виниры</option><option>Композитные реставрации</option><option>Консультация по эстетике улыбки</option></select></div>
+        <div class="field"><label for="booking-date">Удобная дата</label><input id="booking-date" name="date" type="date" required></div>
+        <div class="field"><label for="booking-time">Время</label><select id="booking-time" name="time" required><option value="">Выберите</option><option>10:00–12:00</option><option>12:00–15:00</option><option>15:00–18:00</option><option>18:00–20:00</option></select></div>
+        <div class="booking-actions"><button class="btn btn-primary" type="submit">Завершить демо-запись</button><p class="booking-demo-note">Демонстрационный сценарий: данные никуда не отправляются.</p></div>
+      </form>
+    </div>
+    <div class="booking-success" data-booking-success hidden tabindex="-1">
+      <div class="success-check" aria-hidden="true">✓</div>
+      <h2>Запись оформлена</h2>
+      <p>Уведомление бы пришло вам, Разита.</p>
+      <button class="btn btn-primary" type="button" data-booking-done>Готово</button>
+    </div>
+  </div>
+</dialog>
 
 <script>
 /* =========================================================
@@ -415,7 +464,7 @@ var DATA = {
     tagline: "Эстетическая стоматология · Москва",
     title: "Ваша улыбка. Ваш характер.",
     text: "Виниры и композитные реставрации. Запись на консультацию в Москве, м. Новаторская.",
-    primary: "Обсудить мою улыбку",
+    primary: "Записаться онлайн",
     secondary: "Посмотреть работы",
     motto: "Красивые улыбки и жизнь вне кабинета"
   },
@@ -443,14 +492,14 @@ var DATA = {
   },
   record: {
     title: "Начните с разговора о вашей улыбке",
-    text: "Напишите, что хотели бы изменить, и уточните время консультации.",
+    text: "Выберите направление и удобное время в демонстрационной форме записи.",
     steps: [
       { title: "Напишите врачу", text: "Сообщение в WhatsApp — короткий рассказ о пожеланиях." },
       { title: "Уточните время и место приёма", text: "Москва, м. Новаторская; детали — в переписке." },
       { title: "Обсудите пожелания на консультации", text: "Осмотр, разговор о вариантах и план действий." }
     ],
-    cta: "Написать в WhatsApp",
-    hint: "Ответ приходит в обычном порядке врача, без автоматических подтверждений."
+    cta: "Записаться онлайн",
+    hint: "Это демонстрация онлайн-записи: введённые данные никуда не отправляются."
   },
   contacts: {
     title: "Контакты",
@@ -458,7 +507,7 @@ var DATA = {
     note: "Точный адрес и время приёма уточняйте при записи.",
     phoneDisplay: "+7 925 860-83-65",
     phoneHref: "tel:+79258608365",
-    waLabel: "Написать в WhatsApp",
+    waLabel: "Записаться онлайн",
     instagram: "https://www.instagram.com/dentist_razita/",
     instagramHandle: "instagram.com/dentist_razita"
   },
@@ -505,10 +554,48 @@ var DATA = {
     if (typeof v === "string") el.textContent = fill(v);
   });
 
-  /* Ссылки: WhatsApp с закодированным сообщением, телефон */
-  var waHref = "https://wa.me/" + DATA.wa.number + "?text=" + encodeURIComponent(DATA.wa.message);
-  document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = waHref; a.target = "_blank"; a.rel = "noopener noreferrer"; });
+  /* Телефон */
   document.querySelectorAll("[data-tel]").forEach(function (a) { a.href = DATA.contacts.phoneHref; });
+
+  /* Демонстрационная онлайн-запись */
+  var booking = document.getElementById("booking");
+  var bookingForm = document.getElementById("booking-form");
+  var bookingFormView = booking.querySelector("[data-booking-form-view]");
+  var bookingSuccess = booking.querySelector("[data-booking-success]");
+  var bookingDate = document.getElementById("booking-date");
+  var lastBookingTrigger = null;
+  var today = new Date();
+  bookingDate.min = today.getFullYear() + "-" + String(today.getMonth() + 1).padStart(2, "0") + "-" + String(today.getDate()).padStart(2, "0");
+  function resetBooking() {
+    bookingForm.reset();
+    bookingFormView.hidden = false;
+    bookingSuccess.hidden = true;
+  }
+  function openBooking(trigger) {
+    lastBookingTrigger = trigger;
+    resetBooking();
+    if (typeof booking.showModal === "function") booking.showModal();
+    else booking.setAttribute("open", "");
+    requestAnimationFrame(function() { document.getElementById("booking-name").focus(); });
+  }
+  function closeBooking() {
+    if (typeof booking.close === "function") booking.close();
+    else booking.removeAttribute("open");
+    if (lastBookingTrigger) lastBookingTrigger.focus();
+  }
+  document.querySelectorAll("[data-booking]").forEach(function(link) {
+    link.addEventListener("click", function(e) { e.preventDefault(); openBooking(link); });
+  });
+  booking.querySelector("[data-booking-close]").addEventListener("click", closeBooking);
+  booking.querySelector("[data-booking-done]").addEventListener("click", closeBooking);
+  booking.addEventListener("click", function(e) { if (e.target === booking) closeBooking(); });
+  bookingForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    if (!bookingForm.reportValidity()) return;
+    bookingFormView.hidden = true;
+    bookingSuccess.hidden = false;
+    bookingSuccess.focus();
+  });
 
   /* Alt-тексты */
   document.querySelectorAll("[data-alt]").forEach(function (el) {
