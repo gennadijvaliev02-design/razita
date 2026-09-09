@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Разита — стоматолог в Москве · виниры и композитные реставрации (демо)</title>
+<meta name="description" content="Личный сайт стоматолога: виниры и композитные реставрации в Москве, м. Новаторская. Примеры работ из Instagram и запись на консультацию через WhatsApp. Демонстрационная версия.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23526B60'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F5F1' text-anchor='middle'%3E%D0%A0%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Палитра и контраст (проверено расчётом):
+   --ink #283A34 на --bg #F6F5F1 ≈ 10.9:1; --ink на --bg2 #E7ECE8 ≈ 10.0:1;
+   --muted #5A655E на --bg ≈ 5.5:1, на --bg2 ≈ 5.0:1 (AA для обычного текста);
+   исходный #65716A оставлен только для крупных подписей (≥18px, ≈4.3:1 — AA для крупного);
+   белый на --accent #526B60 ≈ 5.7:1. */
+:root{
+  --bg:#F6F5F1; --bg2:#E7ECE8; --ink:#283A34; --accent:#526B60; --accent-dark:#43584E;
+  --muted:#5A655E; --muted-lg:#65716A; --line:rgba(40,58,52,.14); --header-h:68px;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--header-h) + 20px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16.5px/1.65 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;margin:0;letter-spacing:.01em}
+h1{font-size:clamp(2.5rem,6.4vw,4.7rem)}
+h2{font-size:clamp(1.9rem,4.4vw,3.1rem)}
+p{margin:0}
+a{color:inherit}
+.container{width:min(1120px,100% - 40px);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--bg);padding:10px 16px;z-index:99;border-radius:0 0 8px 0}
+.skip:focus{left:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:999px;border:1px solid transparent;font:600 15px/1 var(--sans);letter-spacing:.02em;text-decoration:none;cursor:pointer;transition:transform .2s ease,background-color .2s ease,color .2s ease,border-color .2s ease}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-1px)}
+.btn-light{background:var(--bg);color:var(--ink)}
+.btn-light:hover{transform:translateY(-1px);background:#fff}
+.btn-ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+.link-underline{font-weight:600;font-size:15px;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;text-decoration-color:rgba(82,107,96,.5)}
+.link-underline:hover{text-decoration-color:currentColor}
+.eyebrow{font:600 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+/* Шапка */
+.header{position:sticky;top:0;z-index:50;background:rgba(246,245,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header-inner{display:flex;align-items:center;gap:28px;height:var(--header-h)}
+.brand{display:flex;flex-direction:column;text-decoration:none;margin-right:auto}
+.brand-name{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1}
+.brand-sub{font:600 10.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{text-decoration:none;font:500 14.5px/1 var(--sans);letter-spacing:.04em;color:var(--muted);padding:8px 2px}
+.nav a:hover{color:var(--ink)}
+.burger{display:none;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;padding:10px;background:none;border:0;cursor:pointer}
+.burger span{display:block;height:2px;background:var(--ink);transition:transform .25s ease,opacity .25s ease}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+/* Первый экран */
+.hero{padding:clamp(48px,7vw,92px) 0 clamp(40px,5vw,64px)}
+.hero-grid{display:grid;gap:clamp(32px,5vw,64px);align-items:center}
+.hero-title{margin:18px 0 22px}
+.hero-text{max-width:46ch;color:var(--muted);font-size:clamp(15.5px,1.4vw,18px)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.portrait{position:relative;max-width:440px;width:100%;justify-self:start}
+.portrait::before{content:"";position:absolute;inset:18px -12px -18px 12px;background:var(--bg2);z-index:0}
+.photo{position:relative;margin:0;background:var(--bg2);overflow:hidden;z-index:1}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo .fallback{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:20px}
+.photo .fallback .fl-name{font-family:var(--serif);font-size:clamp(40px,7vw,72px);line-height:1}
+.photo .fallback .fl-sub{font:600 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.photo.is-missing img{display:none}
+.photo.is-missing .fallback{display:flex}
+.aspect-45{aspect-ratio:4/5}
+.aspect-23{aspect-ratio:2/3}
+.aspect-43{aspect-ratio:4/3}
+.aspect-1610{aspect-ratio:16/10}
+.hero-motto{grid-column:1/-1;display:flex;align-items:center;gap:18px;margin-top:clamp(28px,4vw,48px);color:var(--muted-lg);font-family:var(--serif);font-style:italic;font-size:clamp(17px,2vw,21px)}
+.hero-motto::before{content:"";flex:0 0 56px;height:1px;background:var(--accent)}
+/* Направления */
+.services{background:var(--bg2);padding:clamp(56px,8vw,104px) 0}
+.services-head{display:grid;gap:16px;max-width:640px;margin-bottom:clamp(28px,4vw,48px)}
+.service{display:grid;grid-template-columns:72px 1fr;gap:8px 24px;padding:clamp(26px,3.4vw,40px) 0;border-top:1px solid var(--line)}
+.service-num{font-family:var(--serif);font-style:italic;font-size:clamp(28px,3vw,40px);color:var(--accent)}
+.service h3{font-size:clamp(1.4rem,2.6vw,2rem);margin-bottom:10px}
+.service p{color:var(--muted);max-width:62ch}
+.services-note{margin-top:22px;color:var(--muted);font-size:14.5px;max-width:62ch}
+.services-cta{margin-top:30px}
+/* Работы */
+.works{padding:clamp(56px,8vw,104px) 0}
+.works-head{max-width:640px;margin-bottom:clamp(32px,5vw,56px);display:grid;gap:14px}
+.work{display:grid;gap:22px;padding:clamp(24px,3vw,36px) 0;border-top:1px solid var(--line)}
+.work-media{position:relative}
+.work-meta{display:grid;gap:10px;align-content:start}
+.work-index{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--accent)}
+.work-caption{font-weight:600;font-size:15.5px}
+.work-note{color:var(--muted);font-size:14px;max-width:40ch}
+.compare-frame{width:100%;aspect-ratio:1.98/1;background-color:var(--bg2);background-size:233% 259%;background-repeat:no-repeat}
+.compare[data-state="before"] .compare-frame{background-position:50% 14.8%}
+.compare[data-state="after"] .compare-frame{background-position:50% 77.6%}
+[data-img="workAngled"]{aspect-ratio:1664/928}
+[data-img="workAngled"] img{object-fit:contain!important;object-position:center!important}
+[data-img="workMat"]{aspect-ratio:664/638}
+[data-img="workMat"] img{max-width:none;width:250.6%;height:145.45%;inset:-22.73% auto auto -75.3%;object-fit:fill}
+.demo-image-note{font-size:14px;color:var(--muted);border-left:2px solid var(--accent);padding-left:16px;line-height:1.7}
+.compare-controls{display:flex;gap:8px;margin-top:12px}
+.chip{padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:600 13px/1 var(--sans);letter-spacing:.06em;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.pair-chip{position:absolute;left:14px;padding:5px 12px;border-radius:999px;background:rgba(246,245,241,.88);color:var(--ink);font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.pair-chip.top{top:18%}
+.pair-chip.bottom{bottom:18%}
+.works-foot{margin-top:clamp(24px,3vw,36px);display:grid;gap:12px}
+.works-disclaimer{color:var(--muted);font-size:14px}
+/* О враче */
+.about{background:var(--bg2);padding:clamp(56px,8vw,104px) 0}
+.about-grid{display:grid;gap:clamp(32px,5vw,64px);align-items:center}
+.about-photos{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;align-items:end}
+.about-photos .photo:last-child{margin-bottom:26px}
+.about-text{display:grid;gap:18px;max-width:52ch}
+.about-text .lead{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.75rem);line-height:1.35}
+.about-text p:not(.lead){color:var(--muted)}
+/* Запись */
+.record{padding:clamp(56px,8vw,104px) 0}
+.record-card{background:var(--ink);color:var(--bg);border-radius:6px;padding:clamp(36px,6vw,80px);display:grid;gap:clamp(28px,4vw,56px)}
+.record-card h2{color:var(--bg)}
+.record-lead{color:rgba(246,245,241,.82);max-width:44ch;margin-top:16px}
+.steps{list-style:none;counter-reset:step;margin:0;padding:0;display:grid;gap:18px}
+.steps li{counter-increment:step;display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start}
+.steps li::before{content:counter(step,decimal-leading-zero);font-family:var(--serif);font-style:italic;font-size:30px;line-height:1;color:rgba(246,245,241,.55)}
+.steps li::before{grid-row:1/3}
+.steps li span{grid-column:2}
+.steps b{display:block;font-size:16px;margin-bottom:4px}
+.steps span{color:rgba(246,245,241,.72);font-size:14.5px}
+.record-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:28px}
+.record-hint{color:rgba(246,245,241,.6);font-size:13px}
+/* Подвал */
+.footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,64px) 0 40px}
+.footer-grid{display:grid;gap:28px}
+.footer h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:14px}
+.footer-col{display:grid;gap:10px;align-content:start}
+.footer-col .eyebrow{margin-bottom:4px}
+.footer-col a{width:fit-content}
+.footer-note{color:var(--muted);font-size:13.5px}
+.footer-bottom{margin-top:clamp(28px,4vw,44px);padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;color:var(--muted);font-size:12.5px}
+.demo-mark{font-style:italic}
+/* Мобильная кнопка */
+.cta-fixed{position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:60;box-shadow:0 10px 30px rgba(40,58,52,.28)}
+/* Появление */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .compare-frame,.btn,.burger span{transition:none}
+}
+/* Адаптив */
+@media (min-width:768px){.cta-fixed{display:none}}
+@media (max-width:767px){.footer{padding-bottom:110px}}
+@media (min-width:960px){
+  .hero-grid{grid-template-columns:1.05fr .95fr}
+  .portrait{justify-self:end}
+  .work{grid-template-columns:7fr 5fr;gap:56px;align-items:center}
+  .work:nth-of-type(even) .work-media{order:2}
+  .about-grid{grid-template-columns:.9fr 1.1fr}
+  .record-card{grid-template-columns:1.1fr .9fr}
+  .footer-grid{grid-template-columns:1.2fr 1fr 1fr}
+}
+@media (max-width:860px){
+  .burger{display:flex}
+  .header-cta{display:none}
+  .nav{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:6px 20px 22px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .25s ease,transform .25s ease,visibility .25s}
+  .nav.open{opacity:1;visibility:visible;transform:none}
+  .nav a{padding:14px 2px;font-size:16.5px;border-bottom:1px solid var(--line)}
+  .nav a:last-child{border-bottom:0}
+}
+@media (max-width:560px){
+  .container{width:calc(100% - 32px)}
+  .service{grid-template-columns:1fr}
+  .service-num{font-size:24px}
+  .about-photos{grid-template-columns:1fr}
+  .about-photos .photo:last-child{margin-bottom:0;max-width:60%}
+  .steps li{grid-template-columns:44px 1fr}
+}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-name" data-path="name">Разита</span>
+      <span class="brand-sub" data-path="profession">Стоматолог</span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Основная навигация">
+      <a href="#about">О враче</a>
+      <a href="#services">Направления</a>
+      <a href="#works">Работы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary header-cta" data-wa href="https://wa.me/79258608365">Записаться</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- 1. Первый экран -->
+  <section class="hero container" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="reveal">
+        <p class="eyebrow" data-path="hero.tagline">Эстетическая стоматология · Москва</p>
+        <h1 class="hero-title" id="hero-title" data-path="hero.title">Ваша улыбка. Ваш характер.</h1>
+        <p class="hero-text" data-path="hero.text">Виниры и композитные реставрации. Запись на консультацию в Москве, м. Новаторская.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" data-wa href="https://wa.me/79258608365" data-path="hero.primary">Обсудить мою улыбку</a>
+          <a class="btn btn-ghost" href="#works" data-path="hero.secondary">Посмотреть работы</a>
+        </div>
+      </div>
+      <div class="portrait reveal">
+        <figure class="photo aspect-45" data-img="hero">
+          <img alt="" data-alt="hero" decoding="async">
+          <figcaption class="fallback"><span class="fl-name" data-path="name">Разита</span><span class="fl-sub" data-path="profession">Стоматолог</span></figcaption>
+        </figure>
+      </div>
+      <p class="hero-motto reveal" data-path="hero.motto">Красивые улыбки и жизнь вне кабинета</p>
+    </div>
+  </section>
+
+  <!-- 2. Направления -->
+  <section id="services" class="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="services-head reveal">
+        <p class="eyebrow">Направления</p>
+        <h2 id="services-title" data-path="services.title">Два направления — одна цель</h2>
+      </div>
+      <div class="service reveal">
+        <span class="service-num" aria-hidden="true">01</span>
+        <div>
+          <h3 data-path="services.items.0.title">Виниры</h3>
+          <p data-path="services.items.0.text">Тонкие накладки на внешнюю поверхность передних зубов. Помогают изменить цвет, форму и пропорции в зоне улыбки, когда хочется обновить именно её. Решение подходит не всем случаям — это обсуждается индивидуально.</p>
+        </div>
+      </div>
+      <div class="service reveal">
+        <span class="service-num" aria-hidden="true">02</span>
+        <div>
+          <h3 data-path="services.items.1.title">Композитные реставрации</h3>
+          <p data-path="services.items.1.text">Восстановление формы и цвета зуба композитным материалом непосредственно в полости рта: сколы, трещины, промежутки между зубами, последствия стираемости. Бережный подход к собственным тканям зуба.</p>
+        </div>
+      </div>
+      <p class="services-note reveal" data-path="services.note">Подходящий вариант и объём работы определяются на консультации: сначала осмотр и разговор о пожеланиях, затем план. Результат индивидуален.</p>
+      <div class="services-cta reveal">
+        <a class="btn btn-ghost" href="#record" data-path="services.cta">Узнать, что подойдёт мне</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Работы -->
+  <section id="works" class="works container" aria-labelledby="works-title">
+    <div class="works-head reveal">
+      <p class="eyebrow">Работы</p>
+      <h2 id="works-title" data-path="works.title">Изменения, которые видно</h2>
+      <p class="demo-image-note">В этом макете используются изображения, подготовленные с помощью ИИ. Они показывают оформление раздела и не подтверждают результаты лечения. Перед публикацией нужны оригинальные фотографии врача.</p>
+    </div>
+
+    <article class="work reveal">
+      <div class="work-media">
+        <div class="compare" data-state="before" data-img-bg="workPair">
+          <div class="compare-frame" role="img" data-alt="workPair" aria-label="Пример работы из Instagram: улыбка до и после, фронтальный вид"></div>
+          <div class="compare-controls" role="group" aria-label="Переключение снимков до и после">
+            <button class="chip" type="button" data-compare="before" aria-pressed="true">До</button>
+            <button class="chip" type="button" data-compare="after" aria-pressed="false">После</button>
+          </div>
+        </div>
+      </div>
+      <div class="work-meta">
+        <span class="work-index" aria-hidden="true">I</span>
+        <p class="work-caption">Пример работы из Instagram</p>
+        <p class="work-note">Пара «до / после» из одной публикации. Переключается кнопками и с клавиатуры.</p>
+      </div>
+    </article>
+
+    <article class="work reveal">
+      <div class="work-media">
+        <figure class="photo aspect-43" data-img="workAngled" style="object-position:72% 50%">
+          <img alt="" data-alt="workAngled" loading="lazy" decoding="async" style="object-position:72% 50%">
+          <figcaption class="fallback"><span class="fl-name">DR</span><span class="fl-sub">Пример работы</span></figcaption>
+        </figure>
+      </div>
+      <div class="work-meta">
+        <span class="work-index" aria-hidden="true">II</span>
+        <p class="work-caption">Пример работы из Instagram</p>
+        <p class="work-note">Коллаж из одной публикации: ракурс под углом.</p>
+      </div>
+    </article>
+
+    <article class="work reveal">
+      <div class="work-media">
+        <figure class="photo aspect-1610" data-img="workMat">
+          <img alt="" data-alt="workMat" loading="lazy" decoding="async">
+          <figcaption class="fallback"><span class="fl-name">DR</span><span class="fl-sub">Пример работы</span></figcaption>
+          <span class="pair-chip top" aria-hidden="true">До</span>
+          <span class="pair-chip bottom" aria-hidden="true">После</span>
+        </figure>
+      </div>
+      <div class="work-meta">
+        <span class="work-index" aria-hidden="true">III</span>
+        <p class="work-caption">Пример работы из Instagram</p>
+        <p class="work-note">Пара «до / после» из одной публикации, фронтальный вид.</p>
+      </div>
+    </article>
+
+    <div class="works-foot reveal">
+      <p class="works-disclaimer" data-path="works.disclaimer">Результаты индивидуальны. Возможности лечения обсуждаются на консультации.</p>
+      <a class="link-underline" href="https://www.instagram.com/dentist_razita/" target="_blank" rel="noopener noreferrer" data-path="works.more">Больше примеров — в Instagram</a>
+    </div>
+  </section>
+
+  <!-- 4. О враче -->
+  <section id="about" class="about" aria-labelledby="about-title">
+    <div class="container about-grid">
+      <div class="about-photos reveal">
+        <figure class="photo aspect-45" data-img="about">
+          <img alt="" data-alt="about" loading="lazy" decoding="async" style="object-position:16% 50%">
+          <figcaption class="fallback"><span class="fl-name" data-path="name">Разита</span><span class="fl-sub" data-path="profession">Стоматолог</span></figcaption>
+        </figure>
+        <figure class="photo aspect-23" data-img="life">
+          <img alt="" data-alt="life" loading="lazy" decoding="async">
+          <figcaption class="fallback"><span class="fl-name">DR</span><span class="fl-sub">Жизнь вне кабинета</span></figcaption>
+        </figure>
+      </div>
+      <div class="about-text reveal">
+        <p class="eyebrow">О враче</p>
+        <h2 id="about-title" data-path="about.title">Давайте знакомиться</h2>
+        <p class="lead" data-path="about.lead">Я Разита, стоматолог. Мои направления — виниры и композитные реставрации.</p>
+        <p data-path="about.text">В блоге делюсь работами, рассказываю об уходе за зубами и показываю жизнь вне кабинета. Здесь собрано главное из профиля — без лишних обещаний, только то, что можно увидеть и обсудить.</p>
+        <a class="link-underline" href="https://www.instagram.com/dentist_razita/" target="_blank" rel="noopener noreferrer" data-path="about.link">Больше обо мне в Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Запись -->
+  <section id="record" class="record container" aria-labelledby="record-title">
+    <div class="record-card reveal">
+      <div>
+        <h2 id="record-title" data-path="record.title">Начните с разговора о вашей улыбке</h2>
+        <p class="record-lead" data-path="record.text">Напишите, что хотели бы изменить, и уточните время консультации.</p>
+      </div>
+      <div>
+        <ol class="steps">
+          <li><b data-path="record.steps.0.title">Напишите врачу</b><span data-path="record.steps.0.text">Сообщение в WhatsApp — короткий рассказ о пожеланиях.</span></li>
+          <li><b data-path="record.steps.1.title">Уточните время и место приёма</b><span data-path="record.steps.1.text">Москва, м. Новаторская; детали — в переписке.</span></li>
+          <li><b data-path="record.steps.2.title">Обсудите пожелания на консультации</b><span data-path="record.steps.2.text">Осмотр, разговор о вариантах и план действий.</span></li>
+        </ol>
+        <div class="record-actions">
+          <a class="btn btn-light" data-wa href="https://wa.me/79258608365" data-path="record.cta">Написать в WhatsApp</a>
+        </div>
+        <p class="record-hint" data-path="record.hint">Ответ приходит в обычном порядке врача, без автоматических подтверждений.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 6. Контакты и подвал -->
+<footer id="contacts" class="footer" aria-labelledby="contacts-title">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h2 id="contacts-title" data-path="contacts.title">Контакты</h2>
+        <p class="footer-note" data-path="contacts.city">Москва, м. Новаторская</p>
+        <p class="footer-note" data-path="contacts.note">Точный адрес и время приёма уточняйте при записи.</p>
+      </div>
+      <div class="footer-col">
+        <p class="eyebrow">Связь</p>
+        <a class="link-underline" data-tel href="tel:+79258608365" data-path="contacts.phoneDisplay">+7 925 860-83-65</a>
+        <a class="btn btn-primary" data-wa href="https://wa.me/79258608365" data-path="contacts.waLabel">Написать в WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <p class="eyebrow">Профиль</p>
+        <a class="link-underline" href="https://www.instagram.com/dentist_razita/" target="_blank" rel="noopener noreferrer" data-path="contacts.instagramHandle">instagram.com/dentist_razita</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-path="footer.copy">© Разита, стоматолог. Демонстрационный сайт.</span>
+      <span class="demo-mark" data-path="footer.demo">Демонстрационная версия сайта</span>
+    </div>
+  </div>
+</footer>
+
+<a class="cta-fixed btn btn-primary" data-wa href="https://wa.me/79258608365">Записаться</a>
+
+<script>
+/* =========================================================
+   ЕДИНЫЙ ФАЙЛ ДАННЫХ: меняйте тексты, имя, контакты и пути
+   к изображениям только здесь.
+   ========================================================= */
+var DATA = {
+  name: "Разита",                 /* предварительное имя по нику — заменить при подтверждении */
+  profession: "Стоматолог",
+  hero: {
+    tagline: "Эстетическая стоматология · Москва",
+    title: "Ваша улыбка. Ваш характер.",
+    text: "Виниры и композитные реставрации. Запись на консультацию в Москве, м. Новаторская.",
+    primary: "Обсудить мою улыбку",
+    secondary: "Посмотреть работы",
+    motto: "Красивые улыбки и жизнь вне кабинета"
+  },
+  services: {
+    title: "Два направления — одна цель",
+    items: [
+      { title: "Виниры",
+        text: "Тонкие накладки на внешнюю поверхность передних зубов. Помогают изменить цвет, форму и пропорции в зоне улыбки, когда хочется обновить именно её. Решение подходит не всем случаям — это обсуждается индивидуально." },
+      { title: "Композитные реставрации",
+        text: "Восстановление формы и цвета зуба композитным материалом непосредственно в полости рта: сколы, трещины, промежутки между зубами, последствия стираемости. Бережный подход к собственным тканям зуба." }
+    ],
+    note: "Подходящий вариант и объём работы определяются на консультации: сначала осмотр и разговор о пожеланиях, затем план. Результат индивидуален.",
+    cta: "Узнать, что подойдёт мне"
+  },
+  works: {
+    title: "Изменения, которые видно",
+    disclaimer: "Результаты индивидуальны. Возможности лечения обсуждаются на консультации.",
+    more: "Больше примеров — в Instagram"
+  },
+  about: {
+    title: "Давайте знакомиться",
+    lead: "Я {name}, стоматолог. Мои направления — виниры и композитные реставрации.",
+    text: "В блоге делюсь работами, рассказываю об уходе за зубами и показываю жизнь вне кабинета. Здесь собрано главное из профиля — без лишних обещаний, только то, что можно увидеть и обсудить.",
+    link: "Больше обо мне в Instagram"
+  },
+  record: {
+    title: "Начните с разговора о вашей улыбке",
+    text: "Напишите, что хотели бы изменить, и уточните время консультации.",
+    steps: [
+      { title: "Напишите врачу", text: "Сообщение в WhatsApp — короткий рассказ о пожеланиях." },
+      { title: "Уточните время и место приёма", text: "Москва, м. Новаторская; детали — в переписке." },
+      { title: "Обсудите пожелания на консультации", text: "Осмотр, разговор о вариантах и план действий." }
+    ],
+    cta: "Написать в WhatsApp",
+    hint: "Ответ приходит в обычном порядке врача, без автоматических подтверждений."
+  },
+  contacts: {
+    title: "Контакты",
+    city: "Москва, м. Новаторская",
+    note: "Точный адрес и время приёма уточняйте при записи.",
+    phoneDisplay: "+7 925 860-83-65",
+    phoneHref: "tel:+79258608365",
+    waLabel: "Написать в WhatsApp",
+    instagram: "https://www.instagram.com/dentist_razita/",
+    instagramHandle: "instagram.com/dentist_razita"
+  },
+  footer: {
+    copy: "© {name}, стоматолог. Демонстрационный сайт.",
+    demo: "Демонстрационная версия сайта"
+  },
+  wa: {
+    number: "79258608365",
+    message: "Здравствуйте! Хочу записаться на консультацию по эстетике улыбки. Подскажите, пожалуйста, ближайшее доступное время."
+  },
+  /* Пути к локальным фото. Нет файлов — сайт покажет типографические заглушки. */
+  images: {
+    hero:      "1788961839.png",
+    about:     "1788961826.png",
+    life:      "1788961860.png",
+    workPair:  "1788962110.png",
+    workAngled:"1788961879.png",
+    workMat:   "1788962029.png"
+  },
+  alts: {
+    hero: "Портрет врача-стоматолога в белом медицинском костюме",
+    about: "Врач-стоматолог в светлом кабинете рядом с бумажными цветами",
+    life: "Врач на улице Москвы — жизнь вне кабинета",
+    workPair: "Пример работы из Instagram: улыбка до и после, фронтальный вид",
+    workAngled: "Пример работы из Instagram: улыбка под углом до и после",
+    workMat: "Пример работы из Instagram: улыбка до и после, фронтальный вид"
+  }
+};
+
+(function () {
+  "use strict";
+  function get(obj, path) {
+    return path.split(".").reduce(function (a, k) { return (a == null ? undefined : a[k]); }, obj);
+  }
+  function fill(str) { return String(str).replace(/\{name\}/g, DATA.name); }
+
+  /* Тексты из DATA */
+  document.querySelectorAll('.work-caption').forEach(function(el) { el.textContent = 'Демонстрация оформления'; });
+  document.querySelectorAll('.work-note').forEach(function(el) { el.textContent = 'Иллюстрация для макета. Заменить оригинальным клиническим снимком перед публикацией.'; });
+  ['workPair', 'workAngled', 'workMat'].forEach(function(key) { DATA.alts[key] = 'Иллюстрация для демонстрационного макета, подготовленная с помощью ИИ'; });
+  document.querySelectorAll("[data-path]").forEach(function (el) {
+    var v = get(DATA, el.getAttribute("data-path"));
+    if (typeof v === "string") el.textContent = fill(v);
+  });
+
+  /* Ссылки: WhatsApp с закодированным сообщением, телефон */
+  var waHref = "https://wa.me/" + DATA.wa.number + "?text=" + encodeURIComponent(DATA.wa.message);
+  document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = waHref; a.target = "_blank"; a.rel = "noopener noreferrer"; });
+  document.querySelectorAll("[data-tel]").forEach(function (a) { a.href = DATA.contacts.phoneHref; });
+
+  /* Alt-тексты */
+  document.querySelectorAll("[data-alt]").forEach(function (el) {
+    var t = DATA.alts[el.getAttribute("data-alt")];
+    if (t) { if (el.tagName === "IMG") el.alt = t; else el.setAttribute("aria-label", t); }
+  });
+
+  /* Изображения с заглушками при отсутствии файла */
+  document.querySelectorAll("[data-img]").forEach(function (fig) {
+    var key = fig.getAttribute("data-img"), url = DATA.images[key], img = fig.querySelector("img");
+    if (!url || !img) { fig.classList.add("is-missing"); return; }
+    var probe = new Image();
+    probe.onload = function () { img.src = url; };
+    probe.onerror = function () { fig.classList.add("is-missing"); };
+    probe.src = url;
+  });
+  document.querySelectorAll("[data-img-bg]").forEach(function (box) {
+    var url = DATA.images[box.getAttribute("data-img-bg")];
+    if (url) box.querySelector(".compare-frame").style.backgroundImage = "url('" + url + "')";
+  });
+
+  /* Мобильное меню (включая Escape) */
+  var burger = document.querySelector(".burger"), nav = document.getElementById("site-nav");
+  function setMenu(open) {
+    nav.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+  }
+  burger.addEventListener("click", function () { setMenu(burger.getAttribute("aria-expanded") !== "true"); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && nav.classList.contains("open")) { setMenu(false); burger.focus(); }
+  });
+  nav.addEventListener("click", function (e) { if (e.target.tagName === "A") setMenu(false); });
+  window.addEventListener("resize", function () { if (window.innerWidth > 860) setMenu(false); });
+
+  /* Переключатель до/после */
+  document.querySelectorAll(".compare").forEach(function (cmp) {
+    cmp.querySelectorAll("[data-compare]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var state = btn.getAttribute("data-compare");
+        cmp.setAttribute("data-state", state);
+        cmp.querySelectorAll("[data-compare]").forEach(function (b) {
+          b.setAttribute("aria-pressed", String(b === btn));
+        });
+      });
+    });
+  });
+
+  /* Лёгкое появление блоков */
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var items = document.querySelectorAll(".reveal");
+  if (reduced || !("IntersectionObserver" in window)) {
+    items.forEach(function (el) { el.classList.add("is-in"); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
